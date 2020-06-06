@@ -8,7 +8,7 @@ if ($_COOKIE['log'] !== 'egor') {
 <html lang="ru">
 <head>
   <?php
-    $website_title = 'Панель администратора';
+    $website_title = 'Панель администратора ';
     require 'blocks/head.php';
     include_once ('./libs/connect.php');
   ?>
