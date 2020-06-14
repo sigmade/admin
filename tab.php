@@ -66,7 +66,19 @@ if ($_COOKIE['log'] == '') {
     <?php
 
 
-            $sql = "SELECT * FROM `table` ORDER BY $sorting";
+            $sql = "SELECT 
+                        table.id_staff, 
+                        table.name, 
+                        local.local,
+                        providers.name_provider, 
+                        table.hours, 
+                        table.total, 
+                        month.month 
+                    FROM `table`
+                    INNER JOIN `local` ON local.id_local = table.id_local
+                    INNER JOIN `providers` ON providers.id_provider = table.id_provider
+                    INNER JOIN `month` ON month.id_month = table.id_month ORDER BY $sorting";
+            echo $sql;
 
             $result = mysqli_query($link, $sql);
             $row = mysqli_fetch_array($result);
@@ -83,11 +95,11 @@ if ($_COOKIE['log'] == '') {
             do {
               echo "<tr><td>{$row['id_staff']}</td>
                         <td>{$row['name']}</td>
-                        <td>{$row['id_local']}</td>
-                        <td>{$row['id_provider']}</td>
+                        <td>{$row['local']}</td>
+                        <td>{$row['name_provider']}</td>
                         <td>{$row['hours']}</td>
                         <td>{$row['total']}</td>
-                        <td>{$row['id_month']}</td>
+                        <td>{$row['month']}</td>
                   </tr>";
             } while ($row = mysqli_fetch_array($result));
 
