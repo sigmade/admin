@@ -12,14 +12,11 @@
 <h5>Фильтр по парамтерам</h5>
 <h6>МЕСЯЦ РАБОТЫ</h6>
 <form action="/search_filter.php" method="get">
-<?php             // В ЭТОТ ФАЙЛ ДОБАВИТЬ ВЫГРУЗКУ ПО ПАРАМЕТРАМ
+<?php
 
 $sql = 'SELECT * FROM `month` ';
 $result = mysqli_query($link, $sql);
 $row = mysqli_fetch_array($result);
-
-//echo "<input type='checkbox' name='month[]' onclick='checkboxes_sel_all(this)'><label>Выбрать все</label><br>";
-
 do {
 $check_month="";
 $allmonth="1,2,3,4,5,6,7,8,9,10,11,12";

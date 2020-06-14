@@ -35,7 +35,6 @@ if($_GET['month'] & $_GET['local'] & $_GET['provider'])
 }
 else { echo "Необходимо задать все параметры";
 }
-
             $sort = ($_GET['sort']);
             $sql = "SELECT 
                         table.id_staff, 
@@ -84,7 +83,6 @@ else { echo "Необходимо задать все параметры";
 </div>";
   echo mysqli_error($link);
     ?>
-
       </div>
     <?php require 'blocks/parametr.php'; ?>
 

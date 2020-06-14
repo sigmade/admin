@@ -64,8 +64,6 @@ if ($_COOKIE['log'] == '') {
     </div>
     <div class="col-md-8 mb-3">
     <?php
-
-
             $sql = "SELECT 
                         table.id_staff, 
                         table.name, 
