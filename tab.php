@@ -1,4 +1,4 @@
-<?php // МОЖЕТ ВООБЩЕ УБРАТЬ ЭТУ СТРАНИЦУ
+<?php
 if ($_COOKIE['log'] == '') {
   header('Location:/auth.php');
   exit();
@@ -49,18 +49,9 @@ if ($_COOKIE['log'] == '') {
 <main class="container mt-5">
 <div class="row">
       <div class="col-md-8 mb-3">
-  <!--  <div class="btn-group">
-      Сортировать:&nbsp;&nbsp;
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
      <?= $sort_name; ?>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <button class="dropdown-item" type="button"><a href="tab.php?sort=id_asc">По возрастанию ID</a></button>
-        <button class="dropdown-item" type="button"><a href="tab.php?sort=id_desc">По убыванию ID</a></button>
-        <button class="dropdown-item" type="button"><a href="tab.php?sort=name_asc">От А до Я по ФИО</a></button>
-        <button class="dropdown-item" type="button"><a href="tab.php?sort=name_desc">От Я до А по ФИО</a></button>
-      </div>
-    </div> -->
+
     </div>
     <div class="col-md-8 mb-3">
     <?php
@@ -76,8 +67,6 @@ if ($_COOKIE['log'] == '') {
                     INNER JOIN `local` ON local.id_local = table.id_local
                     INNER JOIN `providers` ON providers.id_provider = table.id_provider
                     INNER JOIN `month` ON month.id_month = table.id_month ORDER BY $sorting";
-            echo $sql;
-
             $result = mysqli_query($link, $sql);
             $row = mysqli_fetch_array($result);
             echo '<table class="table table-striped print">
@@ -103,8 +92,6 @@ if ($_COOKIE['log'] == '') {
 
 
             echo '</table>';
-          //  $l = "SELECT * FROM `table` ORDER BY $sorting";
-          //  echo $l; ПРОВЕРКА ЗАПРОСА
         ?>
       </div>
 <?php require 'blocks/parametr.php'; ?>

@@ -30,34 +30,22 @@ if ($_COOKIE['log'] == '') {
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
   </form></p>
         <?php
-
-
             $sql = 'SELECT * FROM `staff` ';
             $result = mysqli_query($link, $sql);
             echo '<table class="table table-striped print">
-            <thead>
-            <th>УНК</th>
-            <th>ИМЯ</th>
-            </thead>';
+            <thead><th>УНК</th><th>ИМЯ</th></thead>';
             while ($row = mysqli_fetch_array($result))
             {
                 echo "<tr><td>{$row['unk']}</td>
-                          <td>{$row['surname']}&nbsp;{$row['name']}&nbsp;{$row['patronymic']}<br>
-                          <a href='worker.php?unk={$row['unk']}' target='_blank'>
-                          <button type='button' class='btn btn-warning'>Подробнее</button>
-                          </a></td></tr>";
-              }
+                          <td>{$row['surname']}&nbsp;{$row['name']}&nbsp;{$row['patronymic']}</td>
+                          <td><a href='worker.php?unk={$row['unk']}' target='_blank'><button type='button' class='btn btn-warning'>Подробнее</button></a></td>
+                      </tr>";
+            }
             echo '</table>';
-            echo mysqli_error($link);
-
-        ?>
-
+            echo mysqli_error($link);  ?>
       </div>
-
     </div>
-
   </main>
-
   <?php require 'blocks/footer.php'; ?>
 </body>
 </html>

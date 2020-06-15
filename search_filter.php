@@ -18,12 +18,10 @@ if ($_COOKIE['log'] == '') {
 </head>
 <body>
   <?php require 'blocks/header.php'; ?>
-
   <main class="container mt-5">
     <div class="row">
       <div class="col-md-8 mb-3">
         <?php
-
 if($_GET['month'] & $_GET['local'] & $_GET['provider'])
 {
   $check_month=implode(',',$_GET['month']);
@@ -76,9 +74,9 @@ else { echo "Необходимо задать все параметры";
             echo '</table>';
             echo  "<div class='card col-md-8 mb-3 print'>
 <ul class='list-group list-group-flush'>
-<li class='list-group-item'>Всего человек: ".mysqli_num_rows($result)."</li>
-<li class='list-group-item'>Всего часов: ".tabTotal('hours')."</li>
-<li class='list-group-item'>Всего начислено зарплаты: ".$format_total." руб.</li>
+    <li class='list-group-item'>Всего человек: ".mysqli_num_rows($result)."</li>
+    <li class='list-group-item'>Всего часов: ".tabTotal('hours')."</li>
+    <li class='list-group-item'>Всего начислено зарплаты: ".$format_total." руб.</li>
 </ul>
 </div>";
   echo mysqli_error($link);
@@ -88,8 +86,6 @@ else { echo "Необходимо задать все параметры";
 
     </div>
   </main>
-  <?php require 'blocks/footer.php';
-
-?>
+  <?php require 'blocks/footer.php'; ?>
 </body>
 </html>
