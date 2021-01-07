@@ -48,6 +48,3 @@ if(!empty($_FILES['file2']['name']))
 }
 
 
-//$inn = new LoadFile($_FILES['file4'], $_POST['inn'],$_POST['dir']);
-//$other = new LoadFile($_FILES['file5'], $_POST['other'],$_POST['dir']);
-//$pasport->view();
