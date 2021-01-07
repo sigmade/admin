@@ -14,15 +14,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: setup demo
-        run: |
-          mkdir test
-          touch test/oof.txt
 
       - name: Copy single file to remote
         uses: garygrossgarten/github-action-scp@v0.7.1
         with:
-          local: test
+          local:  /home/runner/work/php-erp/php-erp/
           remote: /var/www/erp-server
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
