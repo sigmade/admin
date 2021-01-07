@@ -9,22 +9,28 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Copy single file to remote
-      uses: garygrossgarten/github-action-scp@v0.7.1
-      with:
-        local: /home/runner/work/php-erp/php-erp/deploy/
-        remote: /var/www/erp-server
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.PASSWORD }}
-    - name: Run SSH command
-      uses: garygrossgarten/github-action-ssh@v0.6.3
-      with:
-        command: cd /var/www/erp-server; ls -l
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.PASSWORD }}
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup demo
+        run: |
+          mkdir test
+          touch test/oof.txt
+
+      - name: Copy single file to remote
+        uses: garygrossgarten/github-action-scp@v0.7.1
+        with:
+          local: test
+          remote: /var/www/erp-server
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
+      - name: Run SSH command
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: cd /var/www/erp-server; ls -l
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
