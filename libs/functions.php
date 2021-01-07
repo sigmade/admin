@@ -55,9 +55,6 @@ function make_upload($file){
 	$getMime = explode('.', $file['name']);
 	// нас интересует последний элемент массива - расширение
 	$mime = strtolower(end($getMime));
-	// формируем уникальное имя картинки: случайное число и name
-//$way = "img/$text/";
-//mkdir("$way", 0777);
 	$name = "$text.$mime";
 
 	copy($file['tmp_name'], "$dir". $name );
