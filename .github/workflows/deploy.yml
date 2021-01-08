@@ -19,14 +19,14 @@ jobs:
         uses: garygrossgarten/github-action-scp@v0.7.1
         with:
           local:  /home/runner/work/php-erp/php-erp/
-          remote: /var/www/erp-server
+          remote: /var/www/erp-server.ru
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.PASSWORD }}
       - name: Run SSH command
         uses: garygrossgarten/github-action-ssh@v0.6.3
         with:
-          command: cd /var/www/erp-server; ls -l
+          command: cd /var/www/erp-server.ru; ls -l
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.PASSWORD }}
